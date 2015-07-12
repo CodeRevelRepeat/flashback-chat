@@ -1,6 +1,6 @@
 'use strict';
 
-var messageController = require('./controllers/messageController');
+var messageController = require('../messages/messageController');
 
 module.exports = function(app) {
   app.get('/', messageController.getMessages);

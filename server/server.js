@@ -7,18 +7,17 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
-    messageController = require('./controllers/messageController');
-
+    messageController = require('./messages/messageController');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
   extended: false
 }));
 app.use(bodyParser.json());
-// app.use(express.static(__dirname + '/public'));
+app.use(express.static(__dirname + '/../dist/'));
 
 // configure server with all the middleware and and routing
-// require('./middleware.js')(app, express);
+require('./middleware.js')(app, express);
 
 app.set('port', (process.env.PORT || 3000));
 

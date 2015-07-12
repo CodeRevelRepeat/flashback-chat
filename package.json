@@ -2,6 +2,11 @@
   "name": "flashback-chat",
   "version": "0.0.1",
   "license": "BSD-3Clause",
+  "browserify": {
+    "transform": [
+      "reactify"
+    ]
+  },
   "dependencies": {  
     "express": "^4.12.4",
     "flux": "^2.0.3",
@@ -19,6 +24,22 @@
     "pg-hstore": "^2.3.2"
   },
   "devDependencies": {
-    "body-parser": "^1.12.4"
+    "gulp-cssmin": "^0.1.7",
+    "gulp-jshint": "^1.11.0",
+    "browserify": "^10.2.1",
+    "body-parser": "^1.12.4",
+    "reactify": "^1.1.1",
+    "gulp": "^3.8.11",
+    "gulp-clean": "^0.3.1",
+    "gulp-concat": "^2.5.2",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-rename": "^1.2.2",
+    "gulp-shell": "^0.4.1",
+    "gulp-uglify": "^1.2.0",
+    "vinyl-source-stream": "^1.1.0",
+    "watchify": "^3.2.1",
+    "run-sequence": "^1.1.0",
+    "jshint": "^2.7.0",
+    "jshint-stylish": "^2.0.0"
   }
 }
