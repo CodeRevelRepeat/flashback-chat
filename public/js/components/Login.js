@@ -35,13 +35,20 @@ var Login = React.createClass({
 
   render: function() {
 
+    var header = "Chat like it's 1999";
+
     return (
 
-    <div>
-      <form onSubmit={this.handleLogin} className="formContainer">
-        <input type="name" id="right-label" className="user-name" placeholder="Enter your name" ref="name" />
-        <input type="submit" className="loginButton button" value="Start Chatting!" align="right" />
-      </form>
+    <div className="login">
+      <div>
+        <h1 className="chat-header">{header}</h1>
+        <form onSubmit={this.handleLogin} className="formContainer">
+          <input type="name" id="right-label" className="user-name" placeholder="Enter your name" ref="name" />
+          <div>
+            <input type="submit" className="loginButton button" value="Start Chatting!" align="right" />
+          </div>
+        </form>
+      </div>
     </div>
 
     );

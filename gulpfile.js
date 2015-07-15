@@ -23,6 +23,8 @@ var paths = {
 gulp.task('copy', function() {
   gulp.src(paths.html)
     .pipe(gulp.dest('dist/'));
+  gulp.src('public/assets/**')
+    .pipe(gulp.dest('dist/assets'))
 });
 
 gulp.task('lint', function() {

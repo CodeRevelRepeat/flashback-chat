@@ -15,6 +15,15 @@ var sequelize = new Sequelize(database, username, password, {
   host: host
 })
 
-sequelize.import('./Message');
+
+var models = ['Message'];
+
+models.forEach(function(model){
+  module.exports[model] = sequelize.import(__dirname + '/' + model);
+});
+
+(function(module){
+//Define any relationships between models here
+})(module.exports);
 
 module.exports.sequelize = sequelize; 

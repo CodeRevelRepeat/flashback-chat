@@ -15,13 +15,8 @@ var MessageItem = React.createClass({
     var message = this.props.message;
     var date = new Date(message.createdAt);
     var prettyDate = moment(date).fromNow();
-    var author; 
-    if (message.authorName === lastAuthor) {
-      author = "";
-    } else {
-      author = <h6 className="message-author">{message.authorName}</h6>;
-    } 
-    lastAuthor = message.authorName;
+    var author = <h6 className="message-author">{message.authorName}</h6>;
+
     return (
       <li className="message-item">
         {author}

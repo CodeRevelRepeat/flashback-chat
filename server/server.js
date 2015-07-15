@@ -7,7 +7,7 @@ var express = require('express'),
     bodyParser = require('body-parser'),
     server = require('http').createServer(app),
     io = require('socket.io').listen(server),
-    messageController = require('./messages/messageController');
+    messageController = require('./controllers/messageController');
 
 app.use(morgan('dev'));
 app.use(bodyParser.urlencoded({
