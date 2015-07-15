@@ -31,8 +31,8 @@ var MessageSubmit = React.createClass({
       event.preventDefault();
       var text = this.state.text.trim();
       if (text) {
-        // hard-coded as an example 
-        MessageActions.createMessage(text, 'Main');
+    
+        MessageActions.createMessage(text);
       }
       this.setState({
         text: ""

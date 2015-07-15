@@ -15,14 +15,17 @@ var MessageItem = React.createClass({
     var message = this.props.message;
     var date = new Date(message.createdAt);
     var prettyDate = moment(date).fromNow();
-    var author = <h6 className="message-author">{message.authorName}</h6>;
+    var author;
+    if(this.props.message.code %2){
+      author = <span className="message-author author-blue">{message.authorName}</span>;
+    } else {
+      author = <span className="message-author author-red">{message.authorName}</span>;
+    }
 
     return (
       <li className="message-item">
-        {author}
-          <div className="message-text-wrapper">
-            <span className="message-text">{ this.emojify(message.text, {emojiType: 'emojione'}) }</span>
-          </div> 
+        {author}: <span className="message-text">{ this.emojify(message.text, {emojiType: 'emojione'}) }</span>
+          
           <div className="message-date-wrapper">
             <span className="message-date">{ prettyDate }</span>
           </div> 

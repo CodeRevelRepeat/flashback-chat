@@ -65,3 +65,40 @@ body {
   background-image: linear-gradient(to bottom, #c41313, #e32012);
   text-decoration: none;
 }
+
+ul{
+  list-style-type: none;
+}
+
+.message-author{
+  font-style: bold;
+}
+
+.author-red {
+  color: red;
+}
+
+.author-blue{
+  color: blue;
+}
+
+
+.message-date{
+  font-size: .01em;
+  font-style: italic;
+  padding-bottom: 5em;
+}
+
+.message-text {
+  display: inline;
+}
+
+.message-item{
+  padding-top: 0.4em;
+}
+
+.message-submit-textarea{
+  margin-left: 3.35em;
+  width: 45%;
+}
+

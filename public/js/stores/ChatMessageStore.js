@@ -8,7 +8,7 @@ var objectAssign = require('react/lib/Object.assign');
 var CHANGE_EVENT = 'change';
 
 var _messages = {};
-var _lastAuthor = null;
+
 
 var MessageStore = objectAssign({}, eventEmitter.prototype, {
 
@@ -40,7 +40,6 @@ MessageStore.dispatchToken = AppDispatcher.register(function(action) {
 
     case AppConstants.CREATE_MESSAGE:
       _messages[action.data.createdAt] = action.data;
-      _lastAuthor = action.data.username;
       MessageStore.emitChange();
       break;
 

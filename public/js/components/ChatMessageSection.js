@@ -16,7 +16,7 @@ var getStateFromStores = function() {
 // create a MessageItem component for a given message 
 var createMessageItemForMessage = function(message) {
   return (
-    <MessageItem message={message} key={message.id} /> 
+    <MessageItem message={message} key={message.code} /> 
   );
 };
 
@@ -42,6 +42,10 @@ var MessageSection = React.createClass({
     var messageItems = [];
     for (var key in this.state.messages) {
       var message = this.state.messages[key];
+      //Add code so colors alternate and have unique keys
+    
+      message.code = messageItems.length + 1;
+      
       messageItems.push(createMessageItemForMessage(message));
     };
     return (
