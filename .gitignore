@@ -1,6 +1,7 @@
 .DS_Store
 build/
 node_modules/
+dist/*
 .tmp
 bower_components
 .module-cache
