@@ -18,7 +18,7 @@ if( opts["print-http"] ) {
 
 
 module.exports = function( err, res ) {
-  console.log("in result handler", res.results[0].result.tag.classes)
+  // console.log("in result handler", res.results[0].result.tag.classes)
   if( err != null ) {
     if( typeof err["status_code"] === "string" && err["status_code"] === "TIMEOUT") {
       console.log("TAG request timed out");

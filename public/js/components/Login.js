@@ -57,65 +57,72 @@ var Login = React.createClass({
 
     //call api endpoint
 
-    if(!data){
-
-  //   $.ajax({
-  //     url: 'https://s3.amazonaws.com/neon-challenges/',
-  //     headers: { 'Access-Control-Allow-Origin': '*' },
-  //     crossDomain: true,
-  //     dataType: 'jsonp xml',
-  //     type: 'GET',
-  //     success: function(result){
+    // if(!data){
 
 
-  //         result = xmlToJson(result);
-  //         console.log(result);
+    // $.ajax({
+    //   url: 'http://jsonplaceholder.typicode.com/photos',
+    //   dataType: 'jsonp',
+    //   type: 'GET',
+    //   success: function(result){
+    //       console.log(result);
+    //       console.log("thumbnail", result[0]['thumbnailUrl']);
 
-  //         info = result;
+    //       info = result;
 
-  //         // this.setState ({
-  //         //   info: result
-  //         // });
-  //       if(!result.data){
-  //           // console.log("Error message from Gfy", result.meta.error_message);
+    //       this.setState ({
+    //         info: result
+    //       });
+    //     if(!result.data){
+    //         // console.log("Error message from Gfy", result.meta.error_message);
            
-  //       } else {
+    //     } else {
 
-  //           console.log(result);
-  //         }
+    //         console.log(result);
+    //         console.log("thumbnail", result[0]['thumbnailUrl']);
+    //       }
 
-  //       },
-  //       error: function(xhr, status, error){
-  //         console.error(xhr, status, error)
-  //       }
-  //     })
+    //     },
+    //     error: function(xhr, status, error){
+    //       console.error(xhr, status, error)
+    //     }
+    //   })
 
-  //   };
+    // };
 
 
-  //   return {
-  //     info: info
-  //   };
-  // },
+    return {
+   
+    };
+  },
+
+  componentDidMount: function(){
+    var self = this;
+
 
     $.ajax({
-      url: 'http://gfycat.com/cajax/getTrendingTags',
+      url: 'http://jsonplaceholder.typicode.com/photos',
       dataType: 'jsonp',
       type: 'GET',
       success: function(result){
           console.log(result);
+          console.log("thumbnail", result[0]['thumbnailUrl']);
 
           info = result;
 
-          // this.setState ({
-          //   info: result
-          // });
+
+          var tenPhotos = info.slice(0, 9);
+          self.setState ({
+            tenPhotos: tenPhotos
+          });
+
         if(!result.data){
             // console.log("Error message from Gfy", result.meta.error_message);
            
         } else {
 
             console.log(result);
+            console.log("thumbnail", result[0]['thumbnailUrl']);
           }
 
         },
@@ -124,12 +131,11 @@ var Login = React.createClass({
         }
       })
 
-    };
 
 
-    return {
-      info: info
-    };
+
+
+
   },
 
 
@@ -153,10 +159,10 @@ var Login = React.createClass({
     var tenPhotos = [];
 
     for(var i=0; i< 10; i++){
-        console.log("the stuff", info.tagList[0].gfyList[i]);
+        console.log("the stuff", info[0]['thumbnailUrl']);
           // pic = "http://giant.gfycat.com/ObeseBonyAntarcticgiantpetrel.gif"
 
-          var pic = info.tagList[0].gfyList[i].gifUrl;
+          var pic = info[i]['thumbnailUrl'];
           // pic = info.tagList[0].gfyList[i].title
           console.log("pic", pic);
           tenPhotos.push(pic);
@@ -214,6 +220,14 @@ var Login = React.createClass({
   },
 
 
+  clickBig: function(item){
+    console.log("I'm clicking", item)
+
+
+
+  },
+
+
 
 
 
@@ -228,7 +242,7 @@ var Login = React.createClass({
     if(this.state.tenPhotos){
 
     var listItems = this.state.tenPhotos.map(function(item) {
-      return <li><img src={item}/></li>;
+      return <li onClick={self.clickBig.bind(self, item)}><img src={item.thumbnailUrl}/></li>;
     });
 
     } else {
